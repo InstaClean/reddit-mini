@@ -1,0 +1,31 @@
+.App-header {
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+  width: 100vw;
+  font-size: 1rem;
+}
+
+.search {
+  margin: auto;
+
+  input {
+    height: 2.5rem;
+  }
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+
+  .subreddits {
+    width: 20vw;
+  }
+  .Articles {
+    width: 70vw;
+  }
+}
+
+div {
+  border: 1px solid red;
+}
