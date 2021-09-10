@@ -1,5 +1,4 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import { Counter } from './features/counter/Counter';
 import './App.scss';
 import getPopular from './features/counter/api'

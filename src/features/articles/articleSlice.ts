@@ -3,9 +3,12 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
 export interface articleData {
-    title: string
-    votes: number
-    media: string
+    data: {
+        title: string
+        votes: number
+        media: string
+    }
+    
 }
 
 export interface articleState {
@@ -32,9 +35,12 @@ const initialState: articleState = {
  * 
  * 
  */
+
+
 export const loadArticles =  createAsyncThunk(
     'articles/fetchArticles',
     async (subreddit: string) => {
+        console.log(subreddit)
         const articles = await fetch(`https://www.reddit.com/r/${subreddit}.json`);
 
         const response = await articles.json();
@@ -52,7 +58,7 @@ export const articleSlice = createSlice({
             state.searchTerm = term
         },
         search: (state) => {
-            const find = state.articles.filter(article => article.title.includes(state.searchTerm))
+            const find = state.articles.filter(article => article.data.title.includes(state.searchTerm))
             state.filteredArticles = find
         }
     },

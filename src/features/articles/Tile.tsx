@@ -1,9 +1,13 @@
 import React from 'react'
 
-export const ArticleTile = () => {
+interface props {
+    title: string
+}
+
+export const ArticleTile = ( {title}: props)  => {
     return (
         <div className="tile">
-            <h1>hello</h1>
+            <h2>{title}</h2>
         </div>
     )
 }
