@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
+import { Articles } from './Articles';
 
 export interface articleData {
-    data: {
-        title: string
-        votes: number
-        media: string
-    }
-    
+    id: number
+    title: string
+    ups: number
+    media?: string
 }
 
 export interface articleState {
@@ -58,7 +57,7 @@ export const articleSlice = createSlice({
             state.searchTerm = term
         },
         search: (state) => {
-            const find = state.articles.filter(article => article.data.title.includes(state.searchTerm))
+            const find = state.articles.filter(article => article.title.includes(state.searchTerm))
             state.filteredArticles = find
         }
     },
@@ -69,7 +68,21 @@ export const articleSlice = createSlice({
           })
           .addCase(loadArticles.fulfilled, (state, action) => {
             state.status = 'idle';
-            state.articles = action.payload.data.children
+            const articleList = action.payload.data.children
+            console.log(articleList)
+            const newArticles = []
+            for (let article of articleList) {
+                 article.id = articleList[articleList.indexOf(article)].data.id
+                 article.title = articleList[articleList.indexOf(article)].data.title
+                 article.ups = articleList[articleList.indexOf(article)].data.ups
+
+                 //detect pics in article
+                 if (articleList[articleList.indexOf(article)].data.thumbnail) {
+                    article.media = articleList[articleList.indexOf(article)].data.thumbnail
+                 }
+                 newArticles.push(article)
+            }
+            state.articles = newArticles
           })
     }
 
