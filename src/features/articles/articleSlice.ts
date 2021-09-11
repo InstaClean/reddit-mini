@@ -8,6 +8,7 @@ export interface articleData {
     title: string
     ups: number
     media?: string
+    isVideo: boolean
 }
 
 export interface articleState {
@@ -77,11 +78,13 @@ export const articleSlice = createSlice({
                     article.ups = articleList[articleList.indexOf(article)].data.ups
 
                     //detect pics in article
-                    if (articleList[articleList.indexOf(article)].data.url_overridden_by_dest) {
+                    if (articleList[articleList.indexOf(article)].data.is_video) {
+                        article.media = articleList[articleList.indexOf(article)].data.media.reddit_video.fallback_url
+                        article.isVideo = true
+                    } else if (articleList[articleList.indexOf(article)].data.url_overridden_by_dest) {
                         article.media = articleList[articleList.indexOf(article)].data.url_overridden_by_dest
-                    } else if (articleList[articleList.indexOf(article)].data.thumbnail !== ("self")) {
-                        article.media = articleList[articleList.indexOf(article)].data.thumbnail
-                    }
+                        article.isVideo = false
+                    } 
                     newArticles.push(article)
                 }
             }
@@ -91,6 +94,8 @@ export const articleSlice = createSlice({
     }
 
 });
+
+
 
 export const { updateTerm, search } = articleSlice.actions;
 

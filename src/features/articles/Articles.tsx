@@ -17,7 +17,8 @@ export const Articles = () => {
         <div className="Articles">
             {filteredArticles.map(article => <ArticleTile   key={article.id}
                                                     title={article.title}
-                                                    ups={article.ups} 
+                                                    ups={article.ups}
+                                                    isVideo={article.isVideo} 
                                                     media={article.media}/> )}
         </div>
     )
