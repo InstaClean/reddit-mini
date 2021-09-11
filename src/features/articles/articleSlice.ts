@@ -56,7 +56,7 @@ export const articleSlice = createSlice({
             state.searchTerm = action.payload
         },
         search: (state) => {
-            const find = state.articles.filter(article => article.title.includes(state.searchTerm))
+            const find = state.articles.filter(article => article.title.toUpperCase().includes(state.searchTerm.toUpperCase()))
             state.filteredArticles = find
         }
     },

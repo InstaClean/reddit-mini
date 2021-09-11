@@ -1,5 +1,4 @@
 
-import { useDispatch } from "react-redux"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { search, selectSearchTerm, updateTerm } from "../articles/articleSlice";
 
