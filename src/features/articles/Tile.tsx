@@ -11,7 +11,9 @@ export const ArticleTile = ( {title, ups, media}: props)  => {
         <div className="tile">
             <h2>{title}</h2>
             <p>{ups}</p>
-            <img src={media} alt="article"/>
+            {media && 
+                <img src={media} alt="article" />
+            }
         </div>
     )
 }

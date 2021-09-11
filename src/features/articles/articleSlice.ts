@@ -72,15 +72,19 @@ export const articleSlice = createSlice({
             console.log(articleList)
             const newArticles = []
             for (let article of articleList) {
-                 article.id = articleList[articleList.indexOf(article)].data.id
-                 article.title = articleList[articleList.indexOf(article)].data.title
-                 article.ups = articleList[articleList.indexOf(article)].data.ups
+                if (!articleList[articleList.indexOf(article)].data.stickied) {
+                    article.id = articleList[articleList.indexOf(article)].data.id
+                    article.title = articleList[articleList.indexOf(article)].data.title
+                    article.ups = articleList[articleList.indexOf(article)].data.ups
 
-                 //detect pics in article
-                 if (articleList[articleList.indexOf(article)].data.thumbnail) {
-                    article.media = articleList[articleList.indexOf(article)].data.thumbnail
-                 }
-                 newArticles.push(article)
+                    //detect pics in article
+                    if (articleList[articleList.indexOf(article)].data.url_overridden_by_dest) {
+                        article.media = articleList[articleList.indexOf(article)].data.url_overridden_by_dest
+                    } else if (articleList[articleList.indexOf(article)].data.thumbnail !== ("self")) {
+                        article.media = articleList[articleList.indexOf(article)].data.thumbnail
+                    }
+                    newArticles.push(article)
+                }
             }
             state.articles = newArticles
           })
@@ -91,6 +95,7 @@ export const articleSlice = createSlice({
 export const { updateTerm, search } = articleSlice.actions;
 
 export const selectArticles = (state: RootState) => state.articles.articles
+export const selectSearchTerm = (state: RootState) => state.articles.searchTerm
 export const selectFilteredArticles = (state: RootState) => state.articles.articles
 
 export default articleSlice.reducer
