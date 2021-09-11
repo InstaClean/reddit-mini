@@ -52,9 +52,8 @@ export const articleSlice = createSlice({
     name: 'articles',
     initialState,
     reducers: {
-        updateTerm: (state) => {
-            const term = (<HTMLInputElement>document.getElementById("search")).value
-            state.searchTerm = term
+        updateTerm: (state, action) => {
+            state.searchTerm = action.payload
         },
         search: (state) => {
             const find = state.articles.filter(article => article.title.includes(state.searchTerm))
@@ -87,6 +86,7 @@ export const articleSlice = createSlice({
                 }
             }
             state.articles = newArticles
+            state.filteredArticles = newArticles
           })
     }
 
@@ -96,6 +96,6 @@ export const { updateTerm, search } = articleSlice.actions;
 
 export const selectArticles = (state: RootState) => state.articles.articles
 export const selectSearchTerm = (state: RootState) => state.articles.searchTerm
-export const selectFilteredArticles = (state: RootState) => state.articles.articles
+export const selectFilteredArticles = (state: RootState) => state.articles.filteredArticles
 
 export default articleSlice.reducer

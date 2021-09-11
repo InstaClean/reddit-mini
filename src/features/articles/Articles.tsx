@@ -7,7 +7,7 @@ import { shallowEqual } from "react-redux"
 
 export const Articles = () => {
     const dispatch = useAppDispatch();
-    const articles = useAppSelector(selectArticles, shallowEqual)
+    const articles = useAppSelector(selectArticles)
     const filteredArticles = useAppSelector(selectFilteredArticles)
 
 
@@ -15,7 +15,7 @@ export const Articles = () => {
 
     return (
         <div className="Articles">
-            {articles.map(article => <ArticleTile   key={article.id}
+            {filteredArticles.map(article => <ArticleTile   key={article.id}
                                                     title={article.title}
                                                     ups={article.ups} 
                                                     media={article.media}/> )}

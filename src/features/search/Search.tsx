@@ -1,19 +1,19 @@
 
 import { useDispatch } from "react-redux"
+import { useAppDispatch, useAppSelector } from "../../app/hooks"
+import { search, selectSearchTerm, updateTerm } from "../articles/articleSlice";
 
 export const Search = () => {
+    const dispatch = useAppDispatch();
+    const term = useAppSelector(selectSearchTerm)
 
-    const handleSubmit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
-    
-        
-      }
+
     return (
-        <div id="search">
+        <div id="searchBar">
             <label htmlFor="text" />
-            <input type="text" id="text" />
-            <label htmlFor="submit" />
-            <input type="submit" id="submit" onSubmit={handleSubmit} value=""/>
+            <input type="text" id="text" onChange={(e) => dispatch(updateTerm(e.target.value))} value={term}/>
+            <label htmlFor="search" />
+            <input type="button" id="search"  onClick={() => dispatch(search())} />
         </div>
     )
 }
