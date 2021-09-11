@@ -12,7 +12,7 @@ export const Search = () => {
             <label htmlFor="text" />
             <input type="text" id="text" onChange={(e) => dispatch(updateTerm(e.target.value))} value={term}/>
             <label htmlFor="search" />
-            <input type="button" id="search"  onClick={() => dispatch(search())} />
+            <input type="button" id="search"  onClick={() => dispatch(search())} value="search"/>
         </div>
     )
 }

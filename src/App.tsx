@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <img src={"./wave-icon.jpeg"} id="icon" alt="icon"/>
         <div className="logo">
           <h1>JPGs of Reddit</h1>
         </div>

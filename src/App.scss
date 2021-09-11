@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;500&display=swap");
+
+html {
+  font-family: "Source Code Pro";
+}
+
 .App-header {
   display: flex;
   flex-direction: row;
@@ -6,23 +12,41 @@
   font-size: 1rem;
 }
 
-.search {
-  margin: auto;
+#icon {
+  border-radius: 0.75rem;
+}
+
+.logo {
+  padding-left: 1rem;
+}
+
+#searchBar {
+  margin-left: 25%;
+  width: 20rem;
 
   input {
-    height: 2.5rem;
+    height: 2rem;
+    margin: auto;
+    margin: 1rem 0;
   }
 }
 
 body {
   display: flex;
   flex-direction: row;
+}
 
-  .subreddits {
-    width: 20vw;
-  }
-  .Articles {
-    width: 70vw;
+.subreddits {
+  width: 20vw;
+}
+.Articles {
+  width: 70vw;
+}
+
+.tile {
+  img {
+    max-height: 70rem;
+    max-width: 80rem;
   }
 }
 
