@@ -8,7 +8,7 @@ export const Subreddits = () => {
     return (
         <div className="subreddits" >
             <ul>
-                <li><button type="button" onClick={() => dispatch(loadArticles("popular"))}>r/Popular</button></li>
+                <li><button type="button" onClick={() => dispatch(loadArticles("funnyvideos"))}>r/funnyvideos</button></li>
                 <li><button type="button" onClick={() => dispatch(loadArticles("oldschoolcool"))}>r/oldschoolcool</button></li>
                 <li><button type="button" onClick={() => dispatch(loadArticles("pics"))}>r/pics</button></li>
                 <li><button type="button" onClick={() => dispatch(loadArticles("thewaywewere"))}>r/thewaywewere</button></li>
