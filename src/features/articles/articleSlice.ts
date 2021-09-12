@@ -78,7 +78,7 @@ export const articleSlice = createSlice({
                     article.ups = articleList[articleList.indexOf(article)].data.ups
 
                     //detect pics in article
-                    if (articleList[articleList.indexOf(article)].data.is_video) {
+                    if (articleList[articleList.indexOf(article)].data.is_video && !articleList[articleList.indexOf(article)].data.media.reddit_video.is_gif) {
                         article.media = articleList[articleList.indexOf(article)].data.media.reddit_video.fallback_url
                         article.isVideo = true
                     } else if (articleList[articleList.indexOf(article)].data.url_overridden_by_dest) {
