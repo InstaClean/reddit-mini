@@ -14,6 +14,7 @@ html {
 
 #icon {
   border-radius: 0.75rem;
+  margin-left: 0.5rem;
 }
 
 .logo {
@@ -24,32 +25,82 @@ html {
   margin-left: 25%;
   width: 20rem;
 
+  #text {
+    border-radius: 0.25rem;
+    border-style: none;
+    background-color: rgb(150, 146, 146);
+  }
+
+  #search {
+    margin-left: 0.25rem;
+    border-style: none;
+    border-radius: 0.25rem;
+  }
+  #search:hover {
+    background-color: #000000;
+    color: #ffffff;
+    border-style: none;
+    border-radius: 0.25rem;
+  }
+
   input {
     height: 2rem;
-    margin: auto;
     margin: 1rem 0;
+    font-family: "Source Code Pro";
   }
 }
 
 body {
   display: flex;
   flex-direction: row;
+  background-color: rgb(126, 127, 219);
 }
 
 .subreddits {
   width: 20vw;
+
+  ul {
+    list-style: none;
+
+    button {
+      width: 18rem;
+      font-size: 1.5rem;
+      border-style: none;
+      border-radius: 0.5rem;
+      font-family: "Source Code Pro";
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+    button:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+  }
 }
 .Articles {
   width: 70vw;
 }
 
 .tile {
+  display: flex;
+  font-size: 1.5rem;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #000000;
+  background-color: rgb(147, 156, 238);
+
+  h2 {
+    text-align: center;
+    padding: 0.5rem;
+  }
+
   img {
     max-height: 70rem;
     max-width: 80rem;
+    margin-bottom: 1rem;
   }
-}
 
-div {
-  border: 1px solid red;
+  video {
+    margin-bottom: 1rem;
+  }
 }
