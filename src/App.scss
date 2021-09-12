@@ -76,6 +76,27 @@ body {
       color: #ffffff;
     }
   }
+
+  .return {
+    position: fixed;
+    bottom: 10rem;
+    right: 16rem;
+
+    button {
+      background-color: #ffffff;
+      border-style: none;
+      border-radius: 0.5rem;
+    }
+
+    button:hover {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    span {
+      font-family: "Source Code Pro";
+    }
+  }
 }
 .Articles {
   width: 70vw;
@@ -88,6 +109,7 @@ body {
   align-items: center;
   border: 2px solid #000000;
   background-color: rgb(147, 156, 238);
+  margin: 1rem auto;
 
   h2 {
     text-align: center;
@@ -95,7 +117,7 @@ body {
   }
 
   img {
-    max-height: 70rem;
+    max-height: 65rem;
     max-width: 80rem;
     margin-bottom: 1rem;
   }
