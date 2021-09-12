@@ -15,6 +15,13 @@ export const Subreddits = () => {
                 <li><button type="button" onClick={() => dispatch(loadArticles("memes"))}>r/memes</button></li>
                 <li><button type="button" onClick={() => dispatch(loadArticles("astrophotography"))}>r/astrophotography</button></li>
             </ul>
+            <div className="return">
+                <a href="#search">
+                    <button>
+                        <span>Back to Top</span>
+                    </button>
+                </a>
+            </div>
         </div>
 
     )
