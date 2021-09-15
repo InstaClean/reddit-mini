@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react';
-import { Counter } from './features/counter/Counter';
 import './App.scss';
-import getPopular from './features/counter/api'
 import { Subreddits } from './features/subreddits/subreddits'
 import { Search } from './features/search/Search'
 import { Articles } from './features/articles/Articles'
 
 function App() {
 
-  console.log(getPopular())
   return (
     <div className="App">
       <header className="App-header">
