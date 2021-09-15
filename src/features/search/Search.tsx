@@ -9,9 +9,9 @@ export const Search = () => {
 
     return (
         <div id="searchBar">
-            <label htmlFor="text">Enter Search Query</label>
+            <label htmlFor="text"></label>
             <input type="text" id="text" onChange={(e) => dispatch(updateTerm(e.target.value))} value={term}/>
-            <label htmlFor="search">Submit Query</label>
+            <label htmlFor="search"></label>
             <input type="button" id="search"  onClick={() => dispatch(search())} value="search"/>
         </div>
     )
