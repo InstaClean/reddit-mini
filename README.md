@@ -5,15 +5,12 @@ This is a web app that mimicks some of the features of Reddit, allowing users to
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -27,7 +24,7 @@ Using a Redux Async Thunk as middleware, we can get the data from the subreddit 
 
 ### Links
 
-- Live Site URL: [GitHub Pages](https://instaclean.github.io/tipping-app/)
+- Live Site URL: [GitHub Pages](https://instaclean.github.io/reddit-mini/)
 
 ## My process
 
@@ -35,25 +32,17 @@ Using a Redux Async Thunk as middleware, we can get the data from the subreddit 
 
 - HTML5
 - Flexbox
-- CSS Grid
-- Responsive Web design approach
 - [React](https://reactjs.org/) - JS library
 - [Sass](https://sass-lang.com/) - CSS Preprocessor
+- [Redux Toolkit](https://redux-toolkit.js.org/) -- Global State Management 
+- [TypeScript](https://www.typescriptlang.org/) -- Type Safety
 
 ### What I learned
 
-I took the time to step outside my comfort zone and create this project with React.js. I have made other projects with react but I am proud to say I created this all from my own work and/or research.
+This was the first time I made a redux store on a personal project. Although maybe not necessary for an app on such a small scale as this one is. Making this app with redux boosted my confidence in working within the framework. It is complicated, but I am glad I recieved some useful experience making a useful app with it.  This was also by first project implemented with typescript. I used it mostly with my Middleware and API and it really did make development much simpler.
 
 
 ### Continued development
 
-If I were ever to revisit this project, I would add responsiveness for other devices and tablets.
-
-### Useful resources
-
-- [FreeCodeCamp](https://www.freecodecamp.org/news/deploy-a-react-app-to-github-pages/) - This site helped me learn how to properly deploy a React application from my terminal.
-
-## Author
-
-- Frontend Mentor - [@InstaClean](https://www.frontendmentor.io/profile/InstaClean)
+Will work to make the site fully responsive, only appears friendly for desktop screens.
 
