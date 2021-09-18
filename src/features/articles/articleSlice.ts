@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-assertions */
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-import { Articles } from './Articles';
 
 export interface articleData {
     id: number
@@ -27,16 +26,13 @@ const initialState: articleState = {
 }
 /**
  * 
- * loadArticles
+ * Returns subreddit page data in .json format
  * 
- * returns JSON data of subreddit articles
+ * @param {string}  subreddit name of subreddit to be retrieved 
  * 
- * param: subreddit, name of subreddit to query from
- * 
+ * @returns {json} response in json format
  * 
  */
-
-
 export const loadArticles =  createAsyncThunk(
     'articles/fetchArticles',
     async (subreddit: string) => {
@@ -56,6 +52,7 @@ export const articleSlice = createSlice({
         updateTerm: (state, action) => {
             state.searchTerm = action.payload
         },
+        //filter retrieved articles by matching post title with query string
         search: (state) => {
             const find = state.articles.filter(article => article.title.toUpperCase().includes(state.searchTerm.toUpperCase()))
             state.filteredArticles = find
@@ -69,20 +66,20 @@ export const articleSlice = createSlice({
           .addCase(loadArticles.fulfilled, (state, action) => {
             state.status = 'idle';
             const articleList = action.payload.data.children
-            console.log(articleList)
             const newArticles = []
             for (let article of articleList) {
-                if (!articleList[articleList.indexOf(article)].data.stickied) {
-                    article.id = articleList[articleList.indexOf(article)].data.id
-                    article.title = articleList[articleList.indexOf(article)].data.title
-                    article.ups = articleList[articleList.indexOf(article)].data.ups
+                const articleIndex = articleList.indexOf(article)
+                if (!articleList[articleIndex].data.stickied) {
+                    article.id = articleList[articleIndex].data.id
+                    article.title = articleList[articleIndex].data.title
+                    article.ups = articleList[articleIndex].data.ups
 
-                    //detect pics in article
-                    if (articleList[articleList.indexOf(article)].data.is_video && !articleList[articleList.indexOf(article)].data.media.reddit_video.is_gif) {
-                        article.media = articleList[articleList.indexOf(article)].data.media.reddit_video.fallback_url
+                    //detect media in article
+                    if (articleList[articleList.indexOf(article)].data.is_video && !articleList[articleIndex].data.media.reddit_video.is_gif) {
+                        article.media = articleList[articleIndex].data.media.reddit_video.fallback_url
                         article.isVideo = true
-                    } else if (articleList[articleList.indexOf(article)].data.url_overridden_by_dest) {
-                        article.media = articleList[articleList.indexOf(article)].data.url_overridden_by_dest
+                    } else if (articleList[articleIndex].data.url_overridden_by_dest) {
+                        article.media = articleList[articleIndex].data.url_overridden_by_dest
                         article.isVideo = false
                     } 
                     newArticles.push(article)
