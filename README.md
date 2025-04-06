@@ -1,3 +1,7 @@
+# Update:
+
+This project no longer works as Reddit has paywalled its Public API :(
+
 # JPGs of Reddit (miniature Reddit UI)
 
 This is a web app that mimicks some of the features of Reddit, allowing users to view top posts on a select list of media-centric subreddits. 
